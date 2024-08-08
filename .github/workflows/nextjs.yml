@@ -25,7 +25,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  basePath:
   # Build job
   build:
     runs-on: ubuntu-latest
