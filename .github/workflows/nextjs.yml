@@ -26,14 +26,13 @@ concurrency:
 
 jobs:
   # Build job
-  env:
-    working-directory: ./linzy-log
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run: working-directory: ./linzy-log
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        working-directory: ${{env.working-directory}}
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -51,13 +50,11 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-        working-directory: ${{env.working-directory}}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-        working-directory: ${{env.working-directory}}
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -66,7 +63,6 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
-        working-directory: ${{env.working-directory}}
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -77,18 +73,14 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-        working-directory: ${{env.working-directory}}
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-        working-directory: ${{env.working-directory}}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        working-directory: ${{env.working-directory}}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-        working-directory: ${{env.working-directory}}
 
   # Deployment job
   deploy:
@@ -101,4 +93,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        working-directory: ${{env.working-directory}}
