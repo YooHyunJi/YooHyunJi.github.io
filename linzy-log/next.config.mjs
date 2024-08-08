@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  basePath: "/linzy-log",
-};
+const nextConfig = {};
 
 export default nextConfig;
