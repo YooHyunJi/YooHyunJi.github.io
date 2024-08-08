@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import CircleImage from "../CircleImage/CircleImage";
 import TextWithLine from "../TextWithLine/TextWithLine";
 import TextWithIcon from "../TextWithIcon/TextWithIcon";
@@ -31,37 +32,40 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="flex h-full">
-      {isOpen ? (
-        <nav
-          className={`flex flex-col gap-[2rem] bg-white w-[20rem] h-full px-[2.5rem] py-[4rem] shadow-xl`}
-        >
-          <TextWithLine text="LINZY's" size="L" />
-          <CircleImage size="L" />
-          <div className="flex flex-col gap-[1rem]">
-            {profileList.map((profile, idx) => {
-              const icon = profile[0];
-              const content = profile[1] as string;
-              return (
-                <TextWithIcon
-                  key={`${content}${idx}`}
-                  icon={icon}
-                  text={content}
-                />
-              );
-            })}
-          </div>
-          <div className="py-[3rem]" />
-          <div className="flex flex-col gap-[1rem]">
-            <p className="font-semibold text-[1.3rem] mb-[0.5rem]">Category</p>
-            {categoryList.map((category, idx) => {
-              const name = category[0];
-              const count = category[1] as string;
-              return <p key={`${name}${count}${idx}`}>{`${name}(${count})`}</p>;
-            })}
-          </div>
-        </nav>
-      ) : null}
+    <motion.div
+      initial={{ x: "0%" }} // 초기 위치
+      animate={{ x: isOpen ? 0 : "-20rem" }} // 애니메이션 상태
+      transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
+      className="flex h-full"
+    >
+      <nav
+        className={`flex flex-col gap-[2rem] bg-white w-[20rem] h-full px-[2.5rem] py-[4rem] shadow-xl`}
+      >
+        <TextWithLine text="LINZY's" size="L" />
+        <CircleImage size="L" />
+        <div className="flex flex-col gap-[1rem]">
+          {profileList.map((profile, idx) => {
+            const icon = profile[0];
+            const content = profile[1] as string;
+            return (
+              <TextWithIcon
+                key={`${content}${idx}`}
+                icon={icon}
+                text={content}
+              />
+            );
+          })}
+        </div>
+        <div className="py-[3rem]" />
+        <div className="flex flex-col gap-[1rem]">
+          <p className="font-semibold text-[1.3rem] mb-[0.5rem]">Category</p>
+          {categoryList.map((category, idx) => {
+            const name = category[0];
+            const count = category[1] as string;
+            return <p key={`${name}${count}${idx}`}>{`${name}(${count})`}</p>;
+          })}
+        </div>
+      </nav>
 
       <button
         type="button"
@@ -74,6 +78,6 @@ export default function Navbar() {
           <ChevronRightIcon width={30} color="white" />
         )}
       </button>
-    </div>
+    </motion.div>
   );
 }
