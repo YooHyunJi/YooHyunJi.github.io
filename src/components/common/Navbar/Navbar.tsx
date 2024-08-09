@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import CircleImage from "../CircleImage/CircleImage";
 import TextWithLine from "../TextWithLine/TextWithLine";
@@ -12,12 +11,10 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@/../@heroicons/react/20/solid";
+import { useThemeStore } from "@/stores/themeStore";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(true);
-  const handleOnClick = () => {
-    setIsOpen(!isOpen);
-  };
+  const { isProfileVisible, toggleIsProfileVisible } = useThemeStore();
 
   const profileList = [
     [<AcademicCapIcon key="school" width={25} />, "Sejong.Univ"],
@@ -34,9 +31,9 @@ export default function Navbar() {
   return (
     <motion.div
       initial={{ x: "0%" }} // 초기 위치
-      animate={{ x: isOpen ? 0 : "-20rem" }} // 애니메이션 상태
+      animate={{ x: isProfileVisible ? 0 : "-20rem" }} // 애니메이션 상태
       transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
-      className="flex h-full"
+      className="flex h-full fixed bg-custom-white"
     >
       <nav
         className={`flex flex-col gap-[2rem] bg-white w-[20rem] h-full px-[2.5rem] py-[4rem] shadow-xl`}
@@ -69,10 +66,10 @@ export default function Navbar() {
 
       <button
         type="button"
-        onClick={handleOnClick}
+        onClick={toggleIsProfileVisible}
         className="bg-custom-point w-[3rem] h-[3rem] flex items-center justify-center rounded-e-md mt-[4rem]"
       >
-        {isOpen ? (
+        {isProfileVisible ? (
           <ChevronLeftIcon width={30} color="white" />
         ) : (
           <ChevronRightIcon width={30} color="white" />
