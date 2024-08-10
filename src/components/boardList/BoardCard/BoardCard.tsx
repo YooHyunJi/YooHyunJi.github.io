@@ -20,7 +20,7 @@ export default function BoardCard({ post, isList }: IPropsType) {
       <Link href="https://velog.io/@ccamy0915/posts">
         <div
           className={`${
-            isList ? "h-[15rem]" : "h-[10rem]"
+            isList ? "h-[15rem] xl:h-[30rem]" : "h-[10rem]"
           } w-full content-center`}
         >
           <Image

@@ -82,7 +82,7 @@ export default function BoardCardList({ category }: IPropsType) {
         className={`w-full grid ${
           isList
             ? "gap-[5rem] grid-cols-1"
-            : "grid-cols-2 place-items-center gap-[1rem]"
+            : "grid-cols-2 place-items-center gap-[1rem] xl:grid-cols-3 2xl:grid-cols-4"
         }`}
       >
         {dummy.map((post) => {

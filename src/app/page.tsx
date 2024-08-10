@@ -6,11 +6,17 @@ export default function Page() {
   return (
     <>
       <div className="flex flex-col items-center w-full h-full p-[1rem] ">
-        <div className="flex w-[90%] h-fit gap-[1.5rem] my-[5rem]">
+        <div
+          className="flex w-[90%] h-fit gap-[1.5rem] my-[5rem] 
+        md:w-[60%] md:max-w-[30rem]"
+        >
           <SearchInput />
           <ButtonWithIcon text="SEARCH" onClick={console.log("asdf")} />
         </div>
-        <div className="w-full">
+        <div
+          className="w-full 
+        md:w-[80%]"
+        >
           <BoardCardList category="알고리즘" />
         </div>
       </div>
