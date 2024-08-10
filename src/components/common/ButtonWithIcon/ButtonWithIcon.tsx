@@ -21,7 +21,7 @@ export default function ButtonWithIcon({ text, onClick }: IPropsType) {
     <button
       type="button"
       onClick={onClick}
-      className="h-[3.5rem] px-[2rem] py-[1rem] bg-custom-point text-custom-white rounded-full"
+      className="h-[3.5rem] px-[1rem] py-[1rem] bg-custom-point text-custom-white rounded-full"
     >
       {buttonTypeList[text][0]}
     </button>

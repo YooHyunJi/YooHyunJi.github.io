@@ -14,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="w-full h-full">
-      <body className="flex">
+    <html lang="ko" className="scrollbar-hide">
+      <body>
         <Navbar />
-        <div className="w-full">{children}</div>
+        <div className="w-dvw h-full bg-custom-white mx-auto pt-[7rem] pb-[2rem]">
+          {children}
+        </div>
         <ThemeToggleButton />
       </body>
     </html>
