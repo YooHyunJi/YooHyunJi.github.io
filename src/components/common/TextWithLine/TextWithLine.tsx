@@ -26,7 +26,7 @@ export default function TextWithLine({ text, size }: IPropsType) {
   }
 
   return (
-    <div className={`${height} w-full flex items-center`}>
+    <div className={`${height} flex items-center`}>
       <div className={`h-full bg-custom-point ${widthAndMargin}`}></div>
       <p className={`${fontSize}`}>{text}</p>
     </div>

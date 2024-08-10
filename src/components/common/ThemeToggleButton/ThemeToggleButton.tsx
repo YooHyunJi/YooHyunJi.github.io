@@ -14,9 +14,9 @@ export default function ThemeToggleButton() {
         isLightTheme
           ? "bg-custom-white text-custom-point shadow-2xl"
           : "bg-custom-point text-custom-white shadow-2xl shadow-custom-white"
-      } fixed p-[1rem] rounded-full bottom-[3rem] right-[3rem]`}
+      } fixed p-[1rem] rounded-full bottom-[3rem] right-[2rem]`}
     >
-      {isLightTheme ? <MoonIcon width={40} /> : <SunIcon width={40} />}
+      {isLightTheme ? <MoonIcon width={30} /> : <SunIcon width={30} />}
     </button>
   );
 }

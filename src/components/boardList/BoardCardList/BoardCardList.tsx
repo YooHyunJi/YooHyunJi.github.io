@@ -58,7 +58,7 @@ export default function BoardCardList({ category }: IPropsType) {
   return (
     <div className="w-full mx-auto flex flex-col gap-[3rem] max-w-[80rem]">
       <div className="w-full flex justify-between">
-        <TextWithLine text={category} size="L" />
+        <TextWithLine text={category} size="M" />
         <div className="flex gap-[1.5rem]">
           <button
             type="button"
@@ -79,8 +79,8 @@ export default function BoardCardList({ category }: IPropsType) {
         </div>
       </div>
       <div
-        className={`flex mx-auto w-[80rem] ${
-          isList ? "flex-col gap-[5rem]" : "  gap-[2.5rem] flex-wrap"
+        className={`w-full grid ${
+          isList ? "gap-[5rem] grid-cols-1" : "grid-cols-2 place-items-center"
         }`}
       >
         {dummy.map((post) => {
