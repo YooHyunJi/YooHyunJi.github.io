@@ -40,13 +40,13 @@ export default function Navbar() {
   return (
     <motion.div
       initial={{ y: "0%" }} // 초기 위치
-      animate={{ y: isProfileVisible ? 0 : "-7rem" }} // 애니메이션 상태
+      animate={{ y: isProfileVisible ? 0 : "-5rem" }} // 애니메이션 상태
       transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
       className="w-dvw top-0 fixed"
     >
       <nav
         className={` 
-          bg-custom-white flex justify-between items-end bg-white w-full h-[7rem] px-[1rem] pb-[1.5rem] shadow-md`}
+          bg-custom-white flex justify-between items-center bg-white w-full h-[5rem] px-[1rem] shadow-md`}
       >
         <TextWithLine text="LINZY's" size="L" />
         <div className="flex gap-[0.5rem]">
