@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="ko" className={`${pretendard.variable} scrollbar-hide`}>
       <body className={pretendard.className}>
         <Navbar />
-        <div className="w-dvw h-full bg-custom-white mx-auto pt-[5rem] pb-[2rem]">
+        <div className="w-dvw h-full bg-custom-white mx-auto navbar-padding">
           {children}
         </div>
         <ThemeToggleButton />

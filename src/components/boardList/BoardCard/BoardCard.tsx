@@ -16,15 +16,11 @@ interface IPropsType {
 export default function BoardCard({ post, isList }: IPropsType) {
   const { id, thumbnail, title, tags, desc } = post;
   return (
-    <div
-      className={`${
-        isList ? "w-full" : "w-[10rem]"
-      } overflow-hidden flex flex-col gap-[1rem]`}
-    >
+    <div className={`w-full h-full overflow-hidden flex flex-col gap-[1rem]`}>
       <Link href="https://velog.io/@ccamy0915/posts">
         <div
           className={`${
-            isList ? "h-[15rem]" : "h-[10rem]"
+            isList ? "h-[15rem] xl:h-[30rem]" : "h-[10rem]"
           } w-full content-center`}
         >
           <Image

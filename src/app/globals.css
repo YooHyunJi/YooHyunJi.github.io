@@ -42,3 +42,17 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+.navbar-padding {
+  padding-top: 5rem;
+  padding-left: 0;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-padding {
+    padding-top: 0;
+    padding-left: 20rem;
+    padding-bottom: 2rem;
+  }
+}
