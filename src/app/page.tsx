@@ -1,4 +1,4 @@
-import BoardCardList from "@/components/boardList/BoradCardList/BoradCardList";
+import BoardCardList from "@/components/boardList/BoardCardList/BoardCardList";
 import ButtonWithIcon from "../components/common/ButtonWithIcon/ButtonWithIcon";
 import SearchInput from "../components/common/SearchInput/SearchInput";
 

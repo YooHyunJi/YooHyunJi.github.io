@@ -2,10 +2,11 @@ import Image from "next/image";
 import dummyImage from "@/../public/긁적.jpeg";
 
 interface IPropsType {
+  src: string;
   size: string;
 }
 
-export default function CircleImage({ size }: IPropsType) {
+export default function CircleImage({ src, size }: IPropsType) {
   let length = "";
   switch (size) {
     case "S":
@@ -21,7 +22,7 @@ export default function CircleImage({ size }: IPropsType) {
 
   return (
     <div className={`${length} rounded-[50%] overflow-hidden shadow-md`}>
-      <Image src={dummyImage} alt="image" width={1000} height={1000} />
+      <Image src={src} alt="image" width={1000} height={1000} />
     </div>
   );
 }

@@ -36,10 +36,13 @@ export default function Navbar() {
       className="flex h-full fixed bg-custom-white"
     >
       <nav
-        className={`flex flex-col gap-[2rem] bg-white w-[20rem] h-full px-[2.5rem] py-[4rem] shadow-xl`}
+        className={`bg-custom-white flex flex-col gap-[2rem] bg-white w-[20rem] h-full px-[2.5rem] py-[4rem] shadow-xl`}
       >
         <TextWithLine text="LINZY's" size="L" />
-        <CircleImage size="L" />
+        <CircleImage
+          src="https://avatars.githubusercontent.com/u/88645538"
+          size="L"
+        />
         <div className="flex flex-col gap-[1rem]">
           {profileList.map((profile, idx) => {
             const icon = profile[0];
