@@ -14,7 +14,7 @@ interface ButtonTypeList {
 
 export default function ButtonWithIcon({ text, onClick }: IPropsType) {
   const buttonTypeList: ButtonTypeList = {
-    SEARCH: [<MagnifyingGlassIcon key="search" width={25} />, "검색"],
+    SEARCH: [<MagnifyingGlassIcon key="search" width={20} />, "검색"],
   };
 
   return (

@@ -96,9 +96,7 @@ export default function Navbar() {
                 })}
               </div>
               <div className="w-full flex flex-col gap-[1.2rem]">
-                <p className="font-semibold text-[1.3rem] mb-[0.5rem]">
-                  Category
-                </p>
+                <p className="font-semibold mb-[0.5rem]">Category</p>
                 {categoryList.map((category, idx) => {
                   const id = parseInt(category[0] as string);
                   const name = category[1];
@@ -132,8 +130,8 @@ export default function Navbar() {
       </nav>
 
       {isDetailVisible ? (
-        <div className="w-fit flex flex-col gap-[2rem] px-[2rem] py-[1rem] bg-custom-white ml-auto shadow-xl">
-          <p className="font-semibold text-[1.3rem] mb-[0.5rem]">Category</p>
+        <div className="w-fit flex flex-col gap-[1.7rem] px-[1.5rem] py-[1rem] bg-custom-white ml-auto shadow-xl">
+          <p className="font-semibold text-[1.3rem]">Category</p>
           {categoryList.map((category, idx) => {
             const id = parseInt(category[0] as string);
             const name = category[1];
