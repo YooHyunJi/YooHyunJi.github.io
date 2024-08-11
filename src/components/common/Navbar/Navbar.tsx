@@ -60,7 +60,7 @@ export default function Navbar() {
       animate={
         isMdScreen
           ? { x: isProfileVisible ? 0 : "-20rem" }
-          : { y: isProfileVisible ? 0 : "-5rem" }
+          : { y: isProfileVisible ? 0 : "-3.5rem" }
       } // 애니메이션 상태
       transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
       className="w-dvw top-0 fixed
