@@ -16,7 +16,7 @@ export default function SearchInput() {
       }}
       type="text"
       placeholder="뭔가 찾아볼까요?"
-      className="w-full h-[2.5rem] p-[1rem] rounded-full focus:outline-none"
+      className={`w-full h-[2.5rem] p-[1rem] rounded-full focus:outline-none text-[0.8rem]`}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
     />

@@ -40,11 +40,7 @@ export default function BoardCard({ post, isList }: IPropsType) {
         </p>
       </Link>
       {isList ? <HashTagList tagList={tags} /> : <></>}
-      <p
-        className={`${isList ? "text-[1rem]" : "text-[0.8rem]"} text-overflow`}
-      >
-        {desc}
-      </p>
+      <p className={`text-overflow`}>{desc}</p>
     </div>
   );
 }
