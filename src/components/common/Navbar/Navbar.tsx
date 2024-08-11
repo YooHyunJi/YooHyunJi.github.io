@@ -68,7 +68,7 @@ export default function Navbar() {
     >
       <nav
         className="
-          bg-custom-white flex justify-between items-center bg-white w-full h-[5rem] px-[1rem] shadow-md
+          bg-custom-white flex justify-between items-center bg-white w-full h-[3.5rem] px-[1rem] shadow-md
           md:w-[20rem] md:flex-col md:items-start md:h-full md:justify-normal md: gap-[2rem] md:px-[2.5rem] md:py-[4rem]"
       >
         <TextWithLine text="LINZY's" size="L" />
@@ -125,7 +125,7 @@ export default function Navbar() {
                 setIsDetailVisible(!isDetailVisible);
               }}
             >
-              <EllipsisVerticalIcon width={30} />
+              <EllipsisVerticalIcon width={25} />
             </button>
           )}
         </div>
@@ -156,73 +156,22 @@ export default function Navbar() {
         <button
           type="button"
           onClick={toggleIsProfileVisible}
-          className="bg-custom-point w-[3rem] h-[3rem] flex items-center justify-center rounded-b-md ml-auto 
+          className="bg-custom-point w-[2.5rem] h-[2.5rem] flex items-center justify-center rounded-b-md ml-auto 
           md:rounded-none md:rounded-e-md "
         >
           {isProfileVisible ? (
             isMdScreen ? (
-              <ChevronLeftIcon width={30} color="white" />
+              <ChevronLeftIcon width={25} color="white" />
             ) : (
-              <ChevronUpIcon width={30} color="white" />
+              <ChevronUpIcon width={25} color="white" />
             )
           ) : isMdScreen ? (
-            <ChevronRightIcon width={30} color="white" />
+            <ChevronRightIcon width={25} color="white" />
           ) : (
-            <ChevronDownIcon width={30} color="white" />
+            <ChevronDownIcon width={25} color="white" />
           )}
         </button>
       )}
     </motion.div>
-
-    // <motion.div
-    //   initial={{ x: "0%" }} // 초기 위치
-    //   animate={{ x: isProfileVisible ? 0 : "-20rem" }} // 애니메이션 상태
-    //   transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
-    //   className="flex h-full fixed"
-    // >
-    //   <nav
-    //     className={`bg-custom-white flex flex-col gap-[2rem] bg-white w-[20rem] h-full px-[2.5rem] py-[4rem] shadow-xl`}
-    //   >
-    //     <TextWithLine text="LINZY's" size="L" />
-    //     <CircleImage
-    //       src="https://avatars.githubusercontent.com/u/88645538"
-    //       size="L"
-    //     />
-    //     <div className="flex flex-col gap-[1rem]">
-    //       {profileList.map((profile, idx) => {
-    //         const icon = profile[0];
-    //         const content = profile[1] as string;
-    //         return (
-    //           <TextWithIcon
-    //             key={`${content}${idx}`}
-    //             icon={icon}
-    //             text={content}
-    //           />
-    //         );
-    //       })}
-    //     </div>
-    //     <div className="py-[3rem]" />
-    //     <div className="flex flex-col gap-[1rem]">
-    //       <p className="font-semibold text-[1.3rem] mb-[0.5rem]">Category</p>
-    //       {categoryList.map((category, idx) => {
-    //         const name = category[0];
-    //         const count = category[1] as string;
-    //         return <p key={`${name}${count}${idx}`}>{`${name}(${count})`}</p>;
-    //       })}
-    //     </div>
-    //   </nav>
-
-    //   <button
-    //     type="button"
-    //     onClick={toggleIsProfileVisible}
-    //     className="bg-custom-point w-[3rem] h-[3rem] flex items-center justify-center rounded-e-md mt-[4rem]"
-    //   >
-    //     {isProfileVisible ? (
-    //       <ChevronLeftIcon width={30} color="white" />
-    //     ) : (
-    //       <ChevronRightIcon width={30} color="white" />
-    //     )}
-    //   </button>
-    // </motion.div>
   );
 }

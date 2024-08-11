@@ -56,7 +56,7 @@ export default function BoardCardList({ category }: IPropsType) {
   ];
 
   return (
-    <div className="w-full mx-auto flex flex-col gap-[3rem] max-w-[80rem]">
+    <div className="w-full h-full mx-auto flex flex-col gap-[3rem] max-w-[80rem]">
       <div className="w-full flex justify-between">
         <TextWithLine text={category} size="M" />
         <div className="flex gap-[1.5rem]">
@@ -66,7 +66,7 @@ export default function BoardCardList({ category }: IPropsType) {
               setIsList(true);
             }}
           >
-            <ListBulletIcon width={30} color={isList ? "#6eb098" : "#a5a5a5"} />
+            <ListBulletIcon width={25} color={isList ? "#6eb098" : "#a5a5a5"} />
           </button>
           <button
             type="button"
@@ -74,12 +74,12 @@ export default function BoardCardList({ category }: IPropsType) {
               setIsList(false);
             }}
           >
-            <Squares2X2Icon width={30} color={isList ? "#a5a5a5" : "#6eb098"} />
+            <Squares2X2Icon width={25} color={isList ? "#a5a5a5" : "#6eb098"} />
           </button>
         </div>
       </div>
       <div
-        className={`w-full grid ${
+        className={`w-full h-full grid ${
           isList
             ? "gap-[5rem] grid-cols-1"
             : "grid-cols-2 place-items-center gap-[1rem] xl:grid-cols-3 2xl:grid-cols-4"

@@ -10,7 +10,7 @@ export default function CircleImage({ src, size }: IPropsType) {
   let length = "";
   switch (size) {
     case "S":
-      length = "w-[3rem] h-[3rem]";
+      length = "w-[2rem] h-[2rem]";
       break;
     case "M":
       length = "w-[10rem] h-[10rem]";
