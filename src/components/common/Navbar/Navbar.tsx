@@ -69,9 +69,10 @@ export default function Navbar() {
       md:w-fit md:flex md:h-full md:left-0`}
     >
       <nav
-        className="
-          flex justify-between items-center bg-white w-full h-[3.5rem] px-[1rem] shadow-md
-          md:w-[20rem] md:flex-col md:items-start md:h-full md:justify-normal md: gap-[2rem] md:px-[2.5rem] md:py-[4rem] md:shadow-lg"
+        className={`${
+          theme === "light" ? "bg-custom-white" : "bg-custom-black"
+        } flex justify-between items-center bg-white w-full h-[3.5rem] px-[1rem] shadow-md
+          md:w-[20rem] md:flex-col md:items-start md:h-full md:justify-normal md: gap-[2rem] md:px-[2.5rem] md:py-[4rem] md:shadow-lg`}
       >
         <TextWithLine text="LINZY's" size="L" />
         <div
