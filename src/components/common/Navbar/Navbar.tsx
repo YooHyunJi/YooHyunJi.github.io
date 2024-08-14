@@ -17,6 +17,7 @@ import {
   EllipsisVerticalIcon,
 } from "@/../@heroicons/react/20/solid";
 import { useProfile } from "@/hooks/useProfile";
+import { useTheme } from "@/hooks/useTheme";
 import LocalStorage from "@/utils/LocalStorage";
 
 export default function Navbar() {
@@ -25,6 +26,7 @@ export default function Navbar() {
   const [mode, setMode] = useState(0);
 
   const { isVisible, toggleIsVisible } = useProfile();
+  const { theme } = useTheme();
 
   useEffect(() => {
     LocalStorage.setItem("isVisible", isVisible + "");
@@ -54,23 +56,17 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.div
-      // initial={isMdScreen ? { x: "0%" } : { y: "0%" }} // 초기 위치
-      initial={
+    <div
+      className={`${
         isVisible
-          ? { x: 0, y: 0 }
+          ? isMdScreen
+            ? ""
+            : ""
           : isMdScreen
-          ? { x: "-20rem", y: 0 }
-          : { x: 0, y: "-3.5rem" }
-      } // 초기 위치
-      animate={
-        isMdScreen
-          ? { x: isVisible ? 0 : "-20rem" }
-          : { y: isVisible ? 0 : "-3.5rem" }
-      } // 애니메이션 상태
-      transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
-      className="w-dvw top-0 fixed
-      md:w-fit md:flex md:h-full md:left-0"
+          ? "md:left-[-20rem]"
+          : "top-[-3.5rem]"
+      } w-dvw top-0 fixed
+      md:w-fit md:flex md:h-full md:left-0`}
     >
       <nav
         className="
@@ -136,7 +132,11 @@ export default function Navbar() {
       </nav>
 
       {isDetailVisible ? (
-        <div className="w-fit flex flex-col gap-[1.7rem] px-[1.5rem] py-[1rem] bg-custom-white ml-auto shadow-xl">
+        <div
+          className={`${
+            theme === "light" ? "bg-custom-white" : "bg-custom-black"
+          } w-fit flex flex-col gap-[1.7rem] px-[1.5rem] py-[1rem] ml-auto shadow-xl`}
+        >
           <p className="font-semibold text-[1.3rem]">Category</p>
           {categoryList.map((category, idx) => {
             const id = parseInt(category[0] as string);
@@ -176,6 +176,6 @@ export default function Navbar() {
           )}
         </button>
       )}
-    </motion.div>
+    </div>
   );
 }
