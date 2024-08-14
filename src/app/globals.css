@@ -8,6 +8,12 @@
   }
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 :root {
   --custom-bg: #ffffff;
   --custom-text: #171717;
@@ -15,19 +21,20 @@
   --custom-point: #6eb098;
 }
 
-/* 다크모드 배경 색 */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --custom-bg: #171717;
-    --custom-text: #ffffff;
-    --custom-gray: #a5a5a5;
-    --custom-point: #6eb098;
+.theme-light {
+  a {
+    color: var(--custom-text);
   }
-} */
-
-body {
   color: var(--custom-text);
-  background: var(--custom-bg);
+  background-color: var(--custom-bg);
+}
+
+.theme-dark {
+  a {
+    color: var(--custom-bg);
+  }
+  color: var(--custom-bg);
+  background-color: var(--custom-text);
 }
 
 @layer utilities {
@@ -48,6 +55,15 @@ body {
   padding-left: 0;
   padding-bottom: 2rem;
   font-size: 80%;
+}
+
+.profile-close {
+  .navbar-padding {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 2rem;
+    font-size: 100%;
+  }
 }
 
 @media (min-width: 768px) {

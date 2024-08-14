@@ -16,30 +16,29 @@ import {
   ChevronDownIcon,
   EllipsisVerticalIcon,
 } from "@/../@heroicons/react/20/solid";
-import { useThemeStore } from "@/stores/themeStore";
+import { useProfile } from "@/hooks/useProfile";
 
 export default function Navbar() {
-  const { isProfileVisible, toggleIsProfileVisible } = useThemeStore();
-
   const [isDetailVisible, setIsDetailVisible] = useState(false);
-  const [isMdScreen, setIsMdScreen] = useState(false);
+  const [isMdScreen, setIsMdScreen] = useState(window.innerWidth >= 768);
   const [mode, setMode] = useState(0);
 
+  const { isVisible, toggleIsVisible } = useProfile();
+
   useEffect(() => {
+    localStorage.setItem("isVisible", isVisible + "");
+
     const handleResize = () => {
       const isMdScreen = window.innerWidth >= 768;
       setIsMdScreen(isMdScreen);
     };
-
     // 초기 감지
     handleResize();
-
     // 리사이즈 이벤트 리스너 등록
     window.addEventListener("resize", handleResize);
-
     // 컴포넌트 언마운트 시 이벤트 리스너 제거
     return () => window.removeEventListener("resize", handleResize);
-  }, [setIsMdScreen]);
+  }, [setIsMdScreen, isVisible]);
 
   const profileList = [
     [<AcademicCapIcon key="school" width={25} />, "Sejong.Univ"],
@@ -56,11 +55,18 @@ export default function Navbar() {
 
   return (
     <motion.div
-      initial={isMdScreen ? { x: "0%" } : { y: "0%" }} // 초기 위치
+      // initial={isMdScreen ? { x: "0%" } : { y: "0%" }} // 초기 위치
+      initial={
+        isVisible
+          ? { x: 0, y: 0 }
+          : isMdScreen
+          ? { x: "-20rem", y: 0 }
+          : { x: 0, y: "-3.5rem" }
+      } // 초기 위치
       animate={
         isMdScreen
-          ? { x: isProfileVisible ? 0 : "-20rem" }
-          : { y: isProfileVisible ? 0 : "-3.5rem" }
+          ? { x: isVisible ? 0 : "-20rem" }
+          : { y: isVisible ? 0 : "-3.5rem" }
       } // 애니메이션 상태
       transition={{ type: "just", stiffness: 3 }} // 애니메이션 효과
       className="w-dvw top-0 fixed
@@ -68,8 +74,8 @@ export default function Navbar() {
     >
       <nav
         className="
-          bg-custom-white flex justify-between items-center bg-white w-full h-[3.5rem] px-[1rem] shadow-md
-          md:w-[20rem] md:flex-col md:items-start md:h-full md:justify-normal md: gap-[2rem] md:px-[2.5rem] md:py-[4rem]"
+          flex justify-between items-center bg-white w-full h-[3.5rem] px-[1rem] shadow-md
+          md:w-[20rem] md:flex-col md:items-start md:h-full md:justify-normal md: gap-[2rem] md:px-[2.5rem] md:py-[4rem] md:shadow-lg"
       >
         <TextWithLine text="LINZY's" size="L" />
         <div
@@ -153,11 +159,11 @@ export default function Navbar() {
       ) : (
         <button
           type="button"
-          onClick={toggleIsProfileVisible}
+          onClick={toggleIsVisible}
           className="bg-custom-point w-[2.5rem] h-[2.5rem] flex items-center justify-center rounded-b-md ml-auto 
           md:rounded-none md:rounded-e-md "
         >
-          {isProfileVisible ? (
+          {isVisible ? (
             isMdScreen ? (
               <ChevronLeftIcon width={25} color="white" />
             ) : (
