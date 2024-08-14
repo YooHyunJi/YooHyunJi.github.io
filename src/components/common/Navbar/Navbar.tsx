@@ -17,20 +17,20 @@ import {
   EllipsisVerticalIcon,
 } from "@/../@heroicons/react/20/solid";
 import { useProfile } from "@/hooks/useProfile";
+import LocalStorage from "@/utils/LocalStorage";
 
 export default function Navbar() {
   const [isDetailVisible, setIsDetailVisible] = useState(false);
-  const [isMdScreen, setIsMdScreen] = useState(window.innerWidth >= 768);
+  const [isMdScreen, setIsMdScreen] = useState(true);
   const [mode, setMode] = useState(0);
 
   const { isVisible, toggleIsVisible } = useProfile();
 
   useEffect(() => {
-    localStorage.setItem("isVisible", isVisible + "");
+    LocalStorage.setItem("isVisible", isVisible + "");
 
     const handleResize = () => {
-      const isMdScreen = window.innerWidth >= 768;
-      setIsMdScreen(isMdScreen);
+      setIsMdScreen(window.innerWidth >= 768);
     };
     // 초기 감지
     handleResize();

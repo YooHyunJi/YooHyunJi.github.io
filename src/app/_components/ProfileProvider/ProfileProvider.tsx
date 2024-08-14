@@ -1,22 +1,22 @@
 "use client";
 
 import React, { createContext, useState, PropsWithChildren } from "react";
+import LocalStorage from "@/utils/LocalStorage";
 
 type IValueTypes = {
   isVisible: boolean;
-  toggleIsVisible: () => {};
+  toggleIsVisible: () => void;
 };
 
-export const ProfileContext = createContext({
+export const ProfileContext = createContext<IValueTypes>({
   isVisible: true,
   toggleIsVisible: () => {},
 });
 
 export default function ProfileProvider({ children }: PropsWithChildren) {
-  const defaultTheme =
-    localStorage.getItem("isVisible")! === "true" ? true : false;
-
-  const [isVisible, setIsVisible] = useState(defaultTheme);
+  const [isVisible, setIsVisible] = useState(
+    LocalStorage.getItem("isVisible")! === "true" ? true : false
+  );
 
   const toggleIsVisible = () => {
     setIsVisible(!isVisible);

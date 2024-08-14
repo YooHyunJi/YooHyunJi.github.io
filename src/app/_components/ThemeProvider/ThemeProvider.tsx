@@ -1,21 +1,20 @@
 "use client";
 
 import React, { createContext, useState, PropsWithChildren } from "react";
+import LocalStorage from "@/utils/LocalStorage";
 
-type IValueType = {
+type IValueTypes = {
   theme: string;
   toggleTheme: () => void;
 };
 
-export const ThemeContext = createContext<IValueType>({
+export const ThemeContext = createContext<IValueTypes>({
   theme: "",
   toggleTheme: () => {},
 });
 
 export default function ThemeProvider({ children }: PropsWithChildren) {
-  const defaultTheme = localStorage.getItem("Theme")!;
-
-  const [theme, setTheme] = useState(defaultTheme);
+  const [theme, setTheme] = useState(LocalStorage.getItem("Theme")!);
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
