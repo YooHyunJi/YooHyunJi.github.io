@@ -8,10 +8,6 @@ import LocalStorage from "@/utils/LocalStorage";
 export default function ThemeToggleButton() {
   const { theme, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    LocalStorage.setItem("Theme", theme);
-  }, [theme]);
-
   return (
     <button
       type="button"
