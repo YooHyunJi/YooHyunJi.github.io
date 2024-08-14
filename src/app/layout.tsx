@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+
+import ThemeProvider from "./_components/ThemeProvider/ThemeProvider";
 import Navbar from "../components/common/Navbar/Navbar";
 import ThemeToggleButton from "@/components/common/ThemeToggleButton/ThemeToggleButton";
+import ProfileProvider from "./_components/ProfileProvider/ProfileProvider";
 
 export const metadata: Metadata = {
   title: "LINZY's Blog",
@@ -24,11 +27,15 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${pretendard.variable} scrollbar-hide`}>
       <body className={pretendard.className}>
-        <Navbar />
-        <div className="w-dvw h-full bg-custom-white mx-auto navbar-padding">
-          {children}
-        </div>
-        <ThemeToggleButton />
+        <ThemeProvider>
+          <ProfileProvider>
+            <Navbar />
+            <div className="w-dvw h-full mx-auto navbar-padding">
+              {children}
+            </div>
+            <ThemeToggleButton />
+          </ProfileProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
