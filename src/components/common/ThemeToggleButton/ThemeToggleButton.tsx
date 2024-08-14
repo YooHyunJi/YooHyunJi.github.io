@@ -3,12 +3,13 @@
 import { useEffect } from "react";
 import { MoonIcon, SunIcon } from "@/../@heroicons/react/20/solid";
 import { useTheme } from "@/hooks/useTheme";
+import LocalStorage from "@/utils/LocalStorage";
 
 export default function ThemeToggleButton() {
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    localStorage.setItem("Theme", theme);
+    LocalStorage.setItem("Theme", theme);
   }, [theme]);
 
   return (
